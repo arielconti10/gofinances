@@ -11,11 +11,14 @@ import {
   UserWrapper,
   Icon,
   HighLightCards,
+  Transactions, 
+  Title
 } from "./styles";
 
 import Logo from "../../assets/images/skteworld.png";
 import { RFValue } from "react-native-responsive-fontsize";
 import { HightlightCard } from "../../components/HightlightCard";
+import { TransactionCard } from "../../components/TransactionCard";
 
 export function Dashboard() {
   return (
@@ -57,6 +60,13 @@ export function Dashboard() {
           type="total"
         />
       </HighLightCards>
+    
+      <Transactions>
+        <Title>
+          Listagem
+        </Title>
+        <TransactionCard />
+      </Transactions>
     </Container>
   );
 }
