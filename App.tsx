@@ -9,10 +9,9 @@ import {
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
 
-import { Dashboard } from "./src/pages/Dashboard";
-import { Register } from "./src/pages/Register";
-
 import theme from "./src/global/theme";
+import { NavigationContainer } from "@react-navigation/native";
+import { AppRoutes } from "./src/routes/app.routes";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,7 +26,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Register />
+      <NavigationContainer>
+        <AppRoutes />
+      </NavigationContainer>
     </ThemeProvider>
   );
 }
