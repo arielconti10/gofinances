@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Alert, Keyboard, Modal, TouchableWithoutFeedback } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
+
 import * as Yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from "react-hook-form";
@@ -50,7 +52,7 @@ export function Register() {
     formState: { errors },
   } = useForm({resolver: yupResolver(schema)});
 
-  function handleRegister(form: FormData) {
+  async function handleRegister(form: FormData) {
     if(!transactionType){
       return Alert.alert('Erro', 'Selecione o tipo de transação')
     }
@@ -66,7 +68,15 @@ export function Register() {
       category: category.key,
     };
 
-    console.log(data);
+    try {
+      
+      const dataKey = '@gofinances:transactions';
+      await AsyncStorage.setItem(dataKey, JSON.stringify(data));
+      
+    } catch (error) {
+      console.log(error);
+      Alert.alert('Não foi possível salvar');
+    }
   }
 
   function handleTransactionTypeSelect(type: "up" | "down") {
