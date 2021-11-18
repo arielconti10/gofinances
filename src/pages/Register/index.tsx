@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Alert, Keyboard, Modal, TouchableWithoutFeedback } from "react-native";
-import AsyncStorage from "@react-native-community/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import * as Yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -69,10 +69,8 @@ export function Register() {
     };
 
     try {
-      
       const dataKey = '@gofinances:transactions';
       await AsyncStorage.setItem(dataKey, JSON.stringify(data));
-      
     } catch (error) {
       console.log(error);
       Alert.alert('Não foi possível salvar');
