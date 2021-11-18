@@ -14,16 +14,14 @@ import {
   Transactions,
   Title,
   TransactionList,
+  LogoutButton,
 } from "./styles";
 
-import Logo from "../../assets/images/skteworld.png";
-import { RFValue } from "react-native-responsive-fontsize";
 import { HightlightCard } from "../../components/HightlightCard";
 import {
   TransactionCard,
   TransactionCardProps,
 } from "../../components/TransactionCard";
-import { getBottomSpace } from "react-native-iphone-x-helper";
 
 export interface DataListProps extends TransactionCardProps {
   id: string;
@@ -81,7 +79,9 @@ export function Dashboard() {
               <UserName>Ariel</UserName>
             </User>
           </UserInfo>
-          <Icon name="power" />
+          <LogoutButton onPress={() => {}}>
+            <Icon name="power" />
+          </LogoutButton>
         </UserWrapper>
       </Header>
       <HighLightCards>
