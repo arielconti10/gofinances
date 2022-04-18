@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:sktmap.xcodeproj">
+      location = "group:/Users/arielconti/workspace/gofinances/ios/gofinances.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
